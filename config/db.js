@@ -23,9 +23,13 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-// db.users = require('../models/user.js')(sequelize, DataTypes)
+ db.users = require('../models/user.js')(sequelize, DataTypes)
 // db.products = require('../models/transaction.js')(sequelize, DataTypes)
 // db.orders = require('../models/budget.js')(sequelize, DataTypes)
+
+db.sequelize.sync({ force: false }).then(() => {
+    console.log(' yes re-sync')
+})
 
 
 
